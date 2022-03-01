@@ -18,10 +18,12 @@ import { swapTokens, getAmountOfTokensReceivedFromSwap } from "../utils/swap";
 
 export default function Home() {
   /** General state variables */
-  // loading is set to true when the transaction is mining and set to false when the transaction has mined
+  // loading is set to true when the transaction is mining and set to false when
+  // the transaction has mined
   const [loading, setLoading] = useState(false);
-  // We have two tabs in this dapp, Liquidity Tab and Swap Tab. This variable keeps track of which Tab the user is on
-  // If it is set to true this means that the user is on `liquidity` tab else he is on `swap` tab
+  // We have two tabs in this dapp, Liquidity Tab and Swap Tab. This variable
+  // keeps track of which Tab the user is on If it is set to true this means
+  // that the user is on `liquidity` tab else he is on `swap` tab
   const [liquidityTab, setLiquidityTab] = useState(true);
   // This variable is the `0` number in form of a BigNumber
   const zero = BigNumber.from(0);
@@ -54,8 +56,9 @@ export default function Home() {
   // Amount that the user wants to swap
   const [swapAmount, setSwapAmount] = useState("");
   // This keeps track of the number of tokens that the user would recieve after a swap completes
-  const [tokenToBeRecievedAfterSwap, setTokenToBeRecievedAfterSwap] =
-    useState(zero);
+  const [tokenToBeRecievedAfterSwap, setTokenToBeRecievedAfterSwap] = useState(
+    zero
+  );
   // Keeps track of whether  `Eth` or `Crypto Dev` token is selected. If `Eth` is selected it means that the user
   // wants to swap some `Eth` for some `Crypto Dev` tokens and vice versa if `Eth` is not selected
   const [ethSelected, setEthSelected] = useState(true);
@@ -268,16 +271,20 @@ export default function Home() {
   };
 
   /**
-   * Returns a Provider or Signer object representing the Ethereum RPC with or without the
-   * signing capabilities of metamask attached
+   * Returns a Provider or Signer object representing the Ethereum RPC with or
+   * without the signing capabilities of metamask attached
    *
-   * A `Provider` is needed to interact with the blockchain - reading transactions, reading balances, reading state, etc.
+   * A `Provider` is needed to interact with the blockchain - reading
+   * transactions, reading balances, reading state, etc.
    *
-   * A `Signer` is a special type of Provider used in case a `write` transaction needs to be made to the blockchain, which involves the connected account
-   * needing to make a digital signature to authorize the transaction being sent. Metamask exposes a Signer API to allow your website to
-   * request signatures from the user using Signer functions.
+   * A `Signer` is a special type of Provider used in case a `write` transaction
+   * needs to be made to the blockchain, which involves the connected account
+   * needing to make a digital signature to authorize the transaction being
+   * sent. Metamask exposes a Signer API to allow your website to request
+   * signatures from the user using Signer functions.
    *
-   * @param {*} needSigner - True if you need the signer, default false otherwise
+   * @param {*} needSigner - True if you need the signer, default false
+   * otherwise
    */
   const getProviderOrSigner = async (needSigner = false) => {
     // Connect to Metamask
@@ -477,7 +484,7 @@ export default function Home() {
     <div>
       <Head>
         <title>Crypto Devs</title>
-        <meta name="description" content="Exchange-Dapp" />
+        <meta name="description" content="Whitelist-Dapp" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.main}>
