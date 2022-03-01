@@ -1,5 +1,8 @@
 import { Contract, providers, utils, BigNumber } from "ethers";
-import { EXCHANGE_CONTRACT_ABI, EXCHANGE_CONTRACT_ADDRESS } from "../constants";
+import {
+  EXCHANGE_CONTRACT_ABI,
+  EXCHANGE_CONTRACT_ADDRESS,
+} from "../constants";
 
 /**
  * removeLiquidity: Removes the `removeLPTokensWei` amount of LP tokens from
@@ -44,7 +47,9 @@ export const getTokensAfterRemove = async (
     // Similariy we also maintain a ratio for the `CD` tokens, so here in our case
     // Ratio is -> (amount of CD tokens sent back to the user/ CD Token reserve) = (LP tokens withdrawn)/(Total supply of LP tokens)
     // Then (amount of CD tokens sent back to the user) = (CD token reserve * LP tokens withdrawn)/(Total supply of LP tokens)
-    const _removeEther = _ethBalance.mul(removeLPTokenWei).div(_totalSupply);
+    const _removeEther = _ethBalance
+      .mul(removeLPTokenWei)
+      .div(_totalSupply);
     const _removeCD = cryptoDevTokenReserve
       .mul(removeLPTokenWei)
       .div(_totalSupply);
