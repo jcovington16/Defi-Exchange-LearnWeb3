@@ -9,11 +9,7 @@ import {
 /**
  * getEtherBalance: Retrieves the ether balance of the user or the contract
  */
-export const getEtherBalance = async (
-  provider,
-  address,
-  contract = false
-) => {
+export const getEtherBalance = async (provider, address, contract = false) => {
   try {
     // If the caller has set the `contract` boolean to true, retrieve the balance of
     // ether in the `exchange contract`, if it is set to false, retrieve the balance
